@@ -7,6 +7,15 @@ seq.exists(_ == x)
 seq.contains(x)
 
 
+// Be careful with "contains" argument type
+
+// Before
+Seq(1, 2, 3).contains("1") // compilable
+
+//  After
+Seq(1, 2, 3).contains(1)
+
+
 // Don't use inequality predicate to check element absence
 
 // Before

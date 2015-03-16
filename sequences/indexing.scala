@@ -45,6 +45,17 @@ seq.lift(seq.length - 1)
 seq.lastOption
 
 
+// Be careful with "indexOf" and "lastIndexOf" argument types
+
+// Before
+Seq(1, 2, 3).indexOf("1") // compilable
+Seq(1, 2, 3).lastIndexOf("2") // compilable
+
+//  After
+Seq(1, 2, 3).indexOf(1)
+Seq(1, 2, 3).lastIndexOf(2)
+
+
 // Don't construct indices range manually
 
 // Before

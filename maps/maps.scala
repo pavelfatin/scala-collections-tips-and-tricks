@@ -40,22 +40,22 @@ map.values
 map.valuesIterator
 
 
-// Don't resort to "filter" to filter keys
+// Avoid using "filterKeys"
 
 // Before
-map.filter(p(_._1))
-
-// After
 map.filterKeys(p)
 
+// After
+map.filter(p(_._1))
 
-// Don't resort to "map" to transform values
+
+// Avoid using "mapValues"
 
 // Before
-map.map(f(_._2))
+map.mapValues(f)
 
 // After
-map.mapValues(f)
+map.map(f(_._2))
 
 
 // Don't filter out keys manually

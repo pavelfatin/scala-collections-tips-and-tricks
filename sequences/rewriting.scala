@@ -58,7 +58,7 @@ seq.distinct
 seq.drop(x).take(y)
 
 // After
-seq.slice(x, y + 1)
+seq.slice(x, x + y)
 
 
 // Don't emulate "splitAt"

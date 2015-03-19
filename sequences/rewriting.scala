@@ -130,6 +130,8 @@ seq.foreach(...)
 
 // Don't create temporary collections
 
+// Transformation reduces collection to a single value.
+
 // Before
 seq.map(f).flatMap(g).filter(p).reduce(...)
 
@@ -137,11 +139,26 @@ seq.map(f).flatMap(g).filter(p).reduce(...)
 seq.view.map(f).flatMap(g).filter(p).reduce(...)
 
 
+// Transformation produces a collection of the same class.
+
 // Before
 seq.map(f).flatMap(g).filter(p)
 
 // After
 seq.view.map(f).flatMap(g).filter(p).force
+
+
+// Transformation creates a collection of different class.
+
+// Before
+seq.map(f).flatMap(g).filter(p).toList
+
+// After
+seq.view.map(f).flatMap(g).filter(p).toList
+
+// Using "breakOut"
+
+seq.map(f).toList(collection.breakOut): List[T]
 
 
 // Use assignment operators to reassign a sequence

@@ -20,6 +20,15 @@ option.contains(v)
 !option.contains(v)
 
 
+// Don’t rely on instance type to check value existence
+
+// Before
+option.isInstanceOf[Some[_]]
+
+// After
+option.isDefined
+
+
 // Don't resort to pattern matching to check value existence
 
 // Before

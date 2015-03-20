@@ -7,15 +7,6 @@ set1.sameElements(set2)
 set1 == set2
 
 
-// Don't check element correspondence on unordered collections
-
-// Before
-set1.corresponds(set2)(p)
-
-// After
-???
-
-
 // Don't compute set intersection manually
 
 // Before

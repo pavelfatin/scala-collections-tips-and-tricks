@@ -9,6 +9,17 @@ option.isEmpty
 option.isDefined
 
 
+// Don't compare option values with "Some"
+
+// Before
+option == Some(v)
+option != Some(v)
+
+// After
+option.contains(v)
+!option.contains(v)
+
+
 // Don't resort to pattern matching to check value existence
 
 // Before

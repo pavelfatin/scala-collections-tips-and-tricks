@@ -6,7 +6,7 @@ Code examples for my article [Scala Collections Tips and Tricks](https://pavelfa
 
 Side effects
 
-Chaining
+Composition
 
 Sequences:
 

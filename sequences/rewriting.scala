@@ -103,7 +103,8 @@ seq.takeRight(n)
 // Don't emulate "flatten"
 
 // Before (seq: Seq[Seq[T]])
-seq.flatMap(it => it)
+seq.reduce(_ ++ _)
+seq.fold(Seq.empty)(_ ++ _)
 seq.flatMap(identity)
 
 // After

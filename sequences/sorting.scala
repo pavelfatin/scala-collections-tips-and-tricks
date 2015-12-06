@@ -10,7 +10,6 @@ seq.sortBy(_.property)
 // Don't sort by identity manually
 
 // Before
-seq.sortBy(it => it)
 seq.sortBy(identity)
 seq.sortWith(_ < _)
 

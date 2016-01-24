@@ -20,7 +20,7 @@ option.contains(v)
 !option.contains(v)
 
 
-// Don’t rely on instance type to check value existence
+// Don't rely on instance type to check value existence
 
 // Before
 option.isInstanceOf[Some[_]]
@@ -52,17 +52,3 @@ option.isDefined
 seq.isDefined
 seq.isEmpty
 seq.isEmpty
-
-
-// Don't check value existence to process value
-
-// Before
-if (option.isDefined) {
-    val v = option.get
-    ...
-}
-
-// After
-option.foreach { v =>
-    ...
-}

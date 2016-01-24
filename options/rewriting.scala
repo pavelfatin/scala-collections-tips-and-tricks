@@ -16,6 +16,15 @@ option.map(p).getOrElse(false)
 option.exists(p)
 
 
+// Don't emulate "flatten"
+
+// Before (option: Option[Option[T]])
+option.getOrElse(None)
+
+// After
+option.flatten
+
+
 // Don't convert option to sequence manually
 
 // Before

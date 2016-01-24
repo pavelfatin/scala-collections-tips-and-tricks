@@ -123,10 +123,19 @@ seq.flatMap(f)
 // Don't use "map" when result is ignored
 
 // Before
-seq.map(...) // the result is ignored
+seq.map(???) // the result is ignored
 
 // After
-seq.foreach(...)
+seq.foreach(???)
+
+
+// Don't use "unzip" to extract a single component
+
+// Before (seq: Seq[(A, B]])
+seq.unzip._1
+
+// After
+seq.map(_._1)
 
 
 // Don't create temporary collections
@@ -134,10 +143,10 @@ seq.foreach(...)
 // Transformation reduces collection to a single value.
 
 // Before
-seq.map(f).flatMap(g).filter(p).reduce(...)
+seq.map(f).flatMap(g).filter(p).reduce(???)
 
 // After
-seq.view.map(f).flatMap(g).filter(p).reduce(...)
+seq.view.map(f).flatMap(g).filter(p).reduce(???)
 
 
 // Transformation produces a collection of the same class.
@@ -175,3 +184,16 @@ seq :+= x
 seq +:= x
 seq1 ++= seq2
 seq1 ++:= seq2
+
+// Don't convert to "String" manually
+
+// Before (seq: Seq[String])
+seq.reduce(_ + _)
+seq.reduce(_ + separator + _)
+seq.fold(prefix)(_ + _)
+seq.map(_.toString).reduce(_ + _) // seq: Seq[T]
+seq.foldLeft(new StringBuilder())(_ append _)
+
+// After
+seq.mkString
+seq.mkString(prefix, separator, "")

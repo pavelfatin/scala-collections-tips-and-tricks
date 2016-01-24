@@ -11,11 +11,13 @@ Sequences:
 
 * Creation
 * Length
+* Equality
 * Indexing
 * Existence
 * Filtering
 * Sorting
 * Reduction
+* Matching
 * Rewriting
 
 Sets:
@@ -26,6 +28,7 @@ Options:
 
 * Value
 * Null
+* Processing
 * Rewriting
 
 Maps:

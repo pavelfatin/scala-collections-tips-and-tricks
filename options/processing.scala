@@ -40,6 +40,22 @@ option match {
 option.exists(p)
 
 
+// Don't emulate "forall"
+
+// Before
+option.isEmpty || (option.isDefined && p(option.get))
+
+if (option.isDefined) p(option.get) else true
+
+option match {
+  case Some(it) => p(it)
+  case None => true
+}
+
+// After
+option.forall(p)
+
+
 // Don't emulate "contains"
 
 // Before
@@ -96,3 +112,17 @@ option match {
 
 // After
 option.map(f)
+
+
+// Don't emulate "flatMap"
+
+// Before (f: A => Option[B])
+if (option.isDefined) f(option.get) else None
+
+option match {
+  case Some(it) => f(it)
+  case None => None
+}
+
+// After
+option.flatMap(f)

@@ -37,8 +37,14 @@ option match {
     case None => false
 }
 
+option match {
+    case Some(_) => false
+    case None => true
+}
+
 // After
 option.isDefined
+option.isEmpty
 
 
 // Don't negate value existence-related properties

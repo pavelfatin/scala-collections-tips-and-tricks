@@ -60,3 +60,33 @@ seq.map(p).contains(true)
 
 // After
 seq.exists(p)
+
+
+// Don't emulate "map"
+
+// Before
+seq.foldLeft(Seq.empty)((acc, x) => acc :+ f(x))
+seq.foldRight(Seq.empty)((x, acc) => f(x) +: acc)
+
+// After
+seq.map(f)
+
+
+// Don't emulate "filter"
+
+// Before
+seq.foldLeft(Seq.empty)((acc, x) => if (p(x)) acc :+ x else acc)
+seq.foldRight(Seq.empty)((x, acc) => if (p(x)) x +: acc else acc)
+
+// After
+seq.filter(p)
+
+
+// Don't emulate "reverse"
+
+// Before
+seq.foldLeft(Seq.empty)((acc, x) => x +: acc)
+seq.foldRight(Seq.empty)((x, acc) => acc :+ x)
+
+// After
+seq.reverse

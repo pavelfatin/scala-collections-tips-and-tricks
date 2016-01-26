@@ -185,6 +185,18 @@ seq +:= x
 seq1 ++= seq2
 seq1 ++:= seq2
 
+
+// Don't convert collection type manually
+
+// Before
+seq.foldLeft(Set.empty)(_ + _)
+seq.foldRight(List.empty)(_ :: _)
+
+// After
+seq.toSet
+seq.toList
+
+
 // Don't convert to "String" manually
 
 // Before (seq: Seq[String])

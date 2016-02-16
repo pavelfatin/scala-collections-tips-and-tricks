@@ -1,6 +1,6 @@
 // Don't emulate "getOrElse"
 
-// Before (z: Option[T])
+// Before
 if (option.isDefined) option.get else z
 
 option match {

@@ -1,10 +1,28 @@
+// Don't search for a value manually
+
+// Before
+map.find(_._1 == k).map(_._2)
+
+// After
+map.get(k)
+
+
+// Don't use "get" when a raw value is needed
+
+// Before
+map.get(k).get
+
+// After
+map(k) 
+
+
 // Don't use "lift" instead of "get"
 
 // Before
-map.lift(n)
+map.lift(k)
 
 // After
-map.get(n)
+map.get(k)
 
 
 // Don't call "get" with "getOrElse" separately

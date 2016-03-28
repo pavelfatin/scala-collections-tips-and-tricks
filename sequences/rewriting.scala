@@ -196,6 +196,14 @@ seq.foldRight(List.empty)(_ :: _)
 seq.toSet
 seq.toList
 
+// Be careful with "toSeq" on non-strict collections
+
+// Before (seq: TraversableOnce[T])
+seq.toSeq
+
+// After
+seq.toStream
+seq.toVector
 
 // Don't convert to "String" manually
 

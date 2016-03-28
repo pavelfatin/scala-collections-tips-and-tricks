@@ -19,6 +19,7 @@ option.exists(p)
 // Don't emulate "flatten"
 
 // Before (option: Option[Option[T]])
+option.map(_.get)
 option.getOrElse(None)
 
 // After

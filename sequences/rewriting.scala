@@ -68,7 +68,7 @@ val seq1 = seq.take(n)
 val seq2 = seq.drop(n)
 
 // After
-val (seq1, seq2) = seq.spiltAt(n)
+val (seq1, seq2) = seq.splitAt(n)
 
 
 // Don't emulate "span"

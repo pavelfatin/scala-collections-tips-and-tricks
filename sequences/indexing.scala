@@ -72,3 +72,12 @@ seq.zip(seq.indices)
 
 // After
 seq.zipWithIndex
+
+
+// Use "IndexedSeq" instance as a function value
+
+// Before (seq: IndexedSeq[T])
+Seq(1, 2, 3).map(seq(_))
+
+// After
+Seq(1, 2, 3).map(seq)

@@ -42,3 +42,28 @@ seq.length == 0
 seq.nonEmpty
 seq.nonEmpty
 seq.isEmpty
+
+
+// Don't compute full length for length matching
+
+// Before
+seq.length > n
+seq.length < n
+seq.length == n
+seq.length != n
+
+// After
+seq.lengthCompare(n) > 0
+seq.lengthCompare(n) < 0
+seq.lengthCompare(n) == 0
+seq.lengthCompare(n) != 0
+
+
+// Don't use "exists" to for empiness check
+
+// Before
+seq.exists(_ => true)
+seq.exists(const(true))
+
+// After
+seq.nonEmpty

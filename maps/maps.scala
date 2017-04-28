@@ -34,6 +34,15 @@ map.get(k).getOrElse(z)
 map.getOrElse(k, z)
 
 
+// Use "Map" instance as a function value
+
+// Before (map: Map[Int, T])
+Seq(1, 2, 3).map(map(_))
+
+// After
+Seq(1, 2, 3).map(map)
+
+
 // Don't extract keys manually
 
 // Before

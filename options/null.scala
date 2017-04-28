@@ -7,6 +7,15 @@ if (v != null) Some(v) else None
 Option(v)
 
 
+// Don't use "Option(...)" with a constant
+
+// Before
+Option("constant")
+
+// After
+Some("constant")
+
+
 // Don't provide "null" as an explicit alternative
 
 // Before
